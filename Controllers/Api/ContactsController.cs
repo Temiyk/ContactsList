@@ -18,14 +18,12 @@ namespace ContactsList.Controllers.Api
             _context = context;
         }
 
-        // GET: api/contacts
         [HttpGet]
         public async Task<IActionResult> GetContacts()
         {
             return Ok(await _context.Contacts.OrderBy(c => c.Name).ToListAsync());
         }
 
-        // POST: api/contacts
         [HttpPost]
         public async Task<IActionResult> CreateContact([FromBody] Contact contact)
         {
@@ -36,7 +34,6 @@ namespace ContactsList.Controllers.Api
             return Ok(contact);
         }
 
-        // PUT: api/contacts/5
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateContact(int id, [FromBody] Contact contact)
         {
@@ -47,7 +44,6 @@ namespace ContactsList.Controllers.Api
             return NoContent();
         }
 
-        // DELETE: api/contacts/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteContact(int id)
         {
